@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-main: #161616;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+
+@layer base {
+  html {
+    scrollbar-width: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+  }
+
+  body {
+    background-color: #161616;
+  }
+
+  .nav {
+    box-shadow: 0px 10px 20px -10px white;
+  }
+
+  .category {
+    box-shadow: 0px 10px 20px -15px white;
+    animation: category 300ms ease;
+  }
+
+  .addBg {
+    animation: category 300ms ease;
+  }
+
+  .add {
+    animation: add 300ms ease;
+    animation-delay: 0ms;
+  }
+
+  @keyframes category {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes add {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
