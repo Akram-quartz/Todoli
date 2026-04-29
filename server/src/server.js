@@ -1,12 +1,16 @@
 import express from 'express';
+import { config } from 'dotenv'
+import { connectDB, disconnectDB } from '../config/db.js';
 
 // import routes
 
 import todoRoutes from "./routes/todoRoutes.js"
 
-// define app
+// define app and db
 
 const app = express();
+config();
+connectDB();
 
 // API routes
 
