@@ -3,3 +3,70 @@ GET http://localhost:8000/
 
 ### Initial log
 GET http://localhost:8000/todoit/todo
+
+### register false
+POST http://localhost:8000/auth/register
+Content-Type: application/json
+
+{
+    "name":"akram",
+    "email":"akramremmachedz@gmail.com",
+    "password":"hello"
+}
+
+### register true
+POST http://localhost:8000/auth/register
+Content-Type: application/json
+
+{
+    "name":"akram",
+    "email":"akredz@gmail.com",
+    "password":"hello"
+}
+
+### login true
+POST http://localhost:8000/auth/login
+Content-Type: application/json
+
+{
+    "name":"akram",
+    "email":"akramremmachedz@gmail.com",
+    "password":"hello"
+}
+
+### login false
+POST http://localhost:8000/auth/login
+Content-Type: application/json
+
+{
+    "name":"akram",
+    "email":"akredz@gmail.com",
+    "password":"hello"
+}
+
+### logout
+
+POST http://localhost:8000/auth/logout
+Content-Type: application/json
+
+
+### add category
+POST http://localhost:8000/category/
+Content-Type: application/json
+
+{
+    "userId":"ccdb2da2-ed87-47ea-b768-ee2c7f1f272e",
+    "categoryName":"WORK",
+    "categoryColor":"PURPLE"
+}
+
+### add todo
+POST http://localhost:8000/todoit
+Content-Type: application/json
+
+{
+    "userId":"ccdb2da2-ed87-47ea-b768-ee2c7f1f272e",
+    "text":"First todo in my app",
+    "category":"WORK",
+    "completed":true
+}

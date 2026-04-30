@@ -1,9 +1,8 @@
-import express from 'express'
+import express from 'express';
+import { addTodo } from '../controllers/todoController.js';
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/todo',(req,res)=>{
-    res.json({todo:"Hello there !"})
-})
+router.post('/', addTodo);
 
-export default router
+export default router;

@@ -5,11 +5,60 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+
+
+model User {
+  id String @id @default(uuid())
+  name String 
+  email String @unique
+  password String
+
+  createdAt DateTime @default(now())
+  todo Todo[]
+  category Category[]
+}
+
+model Todo {
+  id String @id @default(uuid())
+  userId String
+  text String 
+  image String?
+  category String
+  completed Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([id,userId])
+  @@unique([userId,text])
+}
+
+model Category {
+  id String @id @default(uuid())
+  userId String
+  categoryName String @unique
+  categoryColor categoryColor @unique
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([categoryColor,categoryName])
+}
+
+enum categoryColor {
+  WHITE
+  GRAY
+  RED
+  ORANGE
+  YELLOW
+  GREEN
+  BLUE
+  PURPLE
 }

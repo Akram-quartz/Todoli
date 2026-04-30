@@ -7,7 +7,7 @@ const prisma = new PrismaClient({
 
 const connectDB = async () => {
     try {
-        await prisma.$connnect()
+        await prisma.$connect()
         console.log("DB connected via prisma");
         
     } catch (error) {
