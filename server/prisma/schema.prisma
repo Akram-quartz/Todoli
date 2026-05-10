@@ -31,25 +31,29 @@ model Todo {
   userId String
   text String 
   image String?
-  category String
+  categoryId String
+  categoryName String
   completed Boolean @default(false)
 
   createdAt DateTime @default(now())
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 
   @@unique([id,userId])
-  @@unique([userId,text])
+  @@unique([userId,text,categoryName])
 }
 
 model Category {
   id String @id @default(uuid())
   userId String
-  categoryName String @unique
-  categoryColor categoryColor @unique
+  categoryName String
+  categoryColor categoryColor
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([categoryColor,categoryName])
+  @@unique([userId,categoryName])
+
+  todos Todo[]
 }
 
 enum categoryColor {

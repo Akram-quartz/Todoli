@@ -52,21 +52,33 @@ Content-Type: application/json
 
 ### add category
 POST http://localhost:8000/category/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjZGIyZGEyLWVkODctNDdlYS1iNzY4LWVlMmM3ZjFmMjcyZSIsImlhdCI6MTc3NzU4MDI1OSwiZXhwIjoxNzc4MTg1MDU5fQ.mFiAEHcv9fOK-iy5QlJHC6agk9NPwvsTCZmcsoc5VDM
 Content-Type: application/json
 
 {
-    "userId":"ccdb2da2-ed87-47ea-b768-ee2c7f1f272e",
-    "categoryName":"WORK",
-    "categoryColor":"PURPLE"
+    "categoryName":"UNI",
+    "categoryColor":"RED"
 }
 
 ### add todo
 POST http://localhost:8000/todoit
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjZGIyZGEyLWVkODctNDdlYS1iNzY4LWVlMmM3ZjFmMjcyZSIsImlhdCI6MTc3NzU4MDI1OSwiZXhwIjoxNzc4MTg1MDU5fQ.mFiAEHcv9fOK-iy5QlJHC6agk9NPwvsTCZmcsoc5VDM
 Content-Type: application/json
 
 {
-    "userId":"ccdb2da2-ed87-47ea-b768-ee2c7f1f272e",
-    "text":"First todo in my app",
+    "text":"Hi",
     "category":"WORK",
     "completed":true
 }
+
+### delete todo
+DELETE  http://localhost:8000/todoit/72268b00-3bcf-4f36-b638-bb11d572c0b9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjZGIyZGEyLWVkODctNDdlYS1iNzY4LWVlMmM3ZjFmMjcyZSIsImlhdCI6MTc3NzU4MDI1OSwiZXhwIjoxNzc4MTg1MDU5fQ.mFiAEHcv9fOK-iy5QlJHC6agk9NPwvsTCZmcsoc5VDM
+
+### delete category
+DELETE  http://localhost:8000/category/2b114e1d-8c47-4d25-85da-c9abd1a6060b
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjZGIyZGEyLWVkODctNDdlYS1iNzY4LWVlMmM3ZjFmMjcyZSIsImlhdCI6MTc3NzU4MDI1OSwiZXhwIjoxNzc4MTg1MDU5fQ.mFiAEHcv9fOK-iy5QlJHC6agk9NPwvsTCZmcsoc5VDM
+
+### get todos
+GET  http://localhost:5173/todoit
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjZGIyZGEyLWVkODctNDdlYS1iNzY4LWVlMmM3ZjFmMjcyZSIsImlhdCI6MTc3NzU4MDI1OSwiZXhwIjoxNzc4MTg1MDU5fQ.mFiAEHcv9fOK-iy5QlJHC6agk9NPwvsTCZmcsoc5VDM

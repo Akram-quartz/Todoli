@@ -1,6 +1,11 @@
 import express from 'express';
 import { config } from 'dotenv'
 import { connectDB, disconnectDB } from './config/db.js';
+import path from 'path';
+import cors from 'cors'
+import cookieParser from 'cookie-parser';
+
+
 
 // import routes
 
@@ -13,9 +18,14 @@ import categoryRoutes from "./routes/categoryRoutes.js"
 const app = express();
 config();
 connectDB();
+app.use(express.static('public'));
 
-// body parse middleware
 
+app.use(cors({
+  origin: 'http://localhost:5173', // your frontend URL
+  credentials: true
+}));
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
@@ -27,13 +37,13 @@ app.use('/auth',authRoutes)
 
 
 app.get('/', (req, res)=>{
-    console.log("hi")
-    res.json({message:"good moorning"})
+    res.sendFile(path.resolve('public/index.html'));
 });
 
 
-const PORT = 8000;
-app.listen(PORT,()=>{
+const PORT = process.env.PORT || 5173;
+
+app.listen(PORT,'0.0.0.0',()=>{
     console.log(`server running at ${PORT}`)
 });
 

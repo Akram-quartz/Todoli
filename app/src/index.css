@@ -42,6 +42,25 @@
     animation-delay: 0ms;
   }
 
+  .todoDeleted {
+    opacity: 0;
+    display: none;
+    animation: todoDelete 0.7s ease;
+  }
+
+  @keyframes todoDelete {
+    0% {
+      opacity: 1;
+      display: flex;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      display: flex;
+      transform: translateX(-300px);
+    }
+  }
+
   @keyframes category {
     from {
       opacity: 0;
